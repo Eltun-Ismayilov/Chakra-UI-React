@@ -16,7 +16,7 @@ import {
 import { useLoaderData } from "react-router-dom"
 
 export default function Dashboard() {
-  const tasks = useLoaderData()
+  const tasks = useLoaderData() //?
 
   return (
     <SimpleGrid spacing={10} minChildWidth={300}>
@@ -56,5 +56,6 @@ export default function Dashboard() {
 
 export const tasksLoader = async () => {
   const res = await fetch('http://localhost:3000/tasks')
+  console.log(res.json());
   return res.json()
 }

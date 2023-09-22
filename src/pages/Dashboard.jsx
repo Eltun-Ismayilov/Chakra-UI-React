@@ -11,7 +11,8 @@ import {
   CardFooter,
   HStack,
   Divider,
-  Button
+  Button,
+  Avatar
 } from "@chakra-ui/react"
 import { useLoaderData } from "react-router-dom"
 
@@ -25,9 +26,7 @@ export default function Dashboard() {
 
           <CardHeader color="gray.700">
             <Flex gap={5}>
-              <Box w="50px" h="50px">
-                <Text>AV</Text>
-              </Box>
+              <Avatar src={task.img}/>
               <Box>
                 <Heading as="h3" size="sm">{task.title}</Heading>
                 <Text>by {task.author}</Text>
@@ -56,6 +55,6 @@ export default function Dashboard() {
 
 export const tasksLoader = async () => {
   const res = await fetch('http://localhost:3000/tasks')
-  console.log(res.json());
+ /// console.log(res.json());
   return res.json()
 }
